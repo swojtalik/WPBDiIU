@@ -9,3 +9,6 @@ C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF\SW_PF\obj\Debu
 C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF\SW_PF\obj\Debug\SW_PF.csproj.GenerateResource.Cache
 C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF\SW_PF\obj\Debug\SW_PF.exe
 C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF\SW_PF\obj\Debug\SW_PF.pdb
+C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF_GITHUB\trunk\SW_PF\SW_PF\bin\Debug\SW_PF.exe.config
+C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF_GITHUB\trunk\SW_PF\SW_PF\obj\Debug\SW_PF.exe
+C:\Users\swojtalik\Documents\Studia\Sem. V\BD - A. Ptasznik\SW_PF_GITHUB\trunk\SW_PF\SW_PF\obj\Debug\SW_PF.pdb
