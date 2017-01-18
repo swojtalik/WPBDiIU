@@ -63,6 +63,39 @@ WHERE        (T.IdTypuLok = 6)</CommandText>
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="DataSet3">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT        IdStraz, Nazwa, IdTypStrazy, Lokalizacja, NazwaSkrocona, IlePojazdow
+FROM            StrazPozarna.dbo.Jednostki</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdStraz">
+          <DataField>IdStraz</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Nazwa">
+          <DataField>Nazwa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IdTypStrazy">
+          <DataField>IdTypStrazy</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Lokalizacja">
+          <DataField>Lokalizacja</DataField>
+          <rd:TypeName>Microsoft.SqlServer.Types.SqlGeography</rd:TypeName>
+        </Field>
+        <Field Name="NazwaSkrocona">
+          <DataField>NazwaSkrocona</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IlePojazdow">
+          <DataField>IlePojazdow</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -82,9 +115,7 @@ WHERE        (T.IdTypuLok = 6)</CommandText>
               </MapLimits>
               <MaximumZoom>4000000</MaximumZoom>
               <MapCustomView>
-                <CenterX>50.9957885742188</CenterX>
-                <CenterY>44.4548187255859</CenterY>
-                <Zoom>170</Zoom>
+                <Zoom>116.112287412062</Zoom>
               </MapCustomView>
               <MapMeridians>
                 <Style>
@@ -140,6 +171,22 @@ WHERE        (T.IdTypuLok = 6)</CommandText>
                       <GroupExpression>=Fields!ile.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
+                </MapMember>
+              </MapDataRegion>
+              <MapDataRegion Name="Map3_PointLayer1_DataRegion">
+                <DataSetName>DataSet1</DataSetName>
+                <MapMember>
+                  <Group Name="Map3_PointLayer1_Group">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!ile.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                </MapMember>
+              </MapDataRegion>
+              <MapDataRegion Name="Map3_PointLayer2_DataRegion">
+                <DataSetName>DataSet3</DataSetName>
+                <MapMember>
+                  <Group Name="Map3_PointLayer2_Group" />
                 </MapMember>
               </MapDataRegion>
             </MapDataRegions>
@@ -218,6 +265,77 @@ WHERE        (T.IdTypuLok = 6)</CommandText>
               <MapPointLayer Name="PointLayer1">
                 <MapMarkerTemplate>
                   <MapMarker>
+                    <MapMarkerStyle>Rectangle</MapMarkerStyle>
+                  </MapMarker>
+                  <Size>10pt</Size>
+                  <Style>
+                    <Border>
+                      <Color>Gray</Color>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <BackgroundGradientType>None</BackgroundGradientType>
+                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                  <Label>=Fields!Lokalizacja.Value</Label>
+                </MapMarkerTemplate>
+                <MapPointRules>
+                  <MapMarkerRule>
+                    <MapMarkers>
+                      <MapMarker>
+                        <MapMarkerStyle>Circle</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Diamond</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Pentagon</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>PushPin</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Rectangle</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Star</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Triangle</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Trapezoid</MapMarkerStyle>
+                      </MapMarker>
+                      <MapMarker>
+                        <MapMarkerStyle>Wedge</MapMarkerStyle>
+                      </MapMarker>
+                    </MapMarkers>
+                    <DataValue>=Count(Fields!ile.Value)</DataValue>
+                    <StartValue />
+                    <EndValue />
+                    <LegendName>Legend1</LegendName>
+                    <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
+                  </MapMarkerRule>
+                </MapPointRules>
+                <MapDataRegionName>Map3_PointLayer1_DataRegion</MapDataRegionName>
+                <MapBindingFieldPairs>
+                  <MapBindingFieldPair>
+                    <FieldName>Name</FieldName>
+                    <BindingExpression>=Fields!ile.Value</BindingExpression>
+                  </MapBindingFieldPair>
+                </MapBindingFieldPairs>
+                <MapFieldDefinitions>
+                  <MapFieldDefinition>
+                    <Name>Name</Name>
+                    <DataType>String</DataType>
+                  </MapFieldDefinition>
+                </MapFieldDefinitions>
+                <Transparency>40</Transparency>
+              </MapPointLayer>
+              <MapPointLayer Name="PointLayer2">
+                <MapMarkerTemplate>
+                  <MapMarker>
                     <MapMarkerStyle>Circle</MapMarkerStyle>
                   </MapMarker>
                   <Size>10pt</Size>
@@ -232,13 +350,20 @@ WHERE        (T.IdTypuLok = 6)</CommandText>
                     <FontSize>8pt</FontSize>
                   </Style>
                 </MapMarkerTemplate>
-                <MapPointRules />
-                <MapFieldDefinitions>
-                  <MapFieldDefinition>
-                    <Name>Name</Name>
-                    <DataType>String</DataType>
-                  </MapFieldDefinition>
-                </MapFieldDefinitions>
+                <MapPointRules>
+                  <MapColorRangeRule>
+                    <ShowInColorScale>true</ShowInColorScale>
+                    <DataValue>=Fields!Lokalizacja.Value</DataValue>
+                    <StartValue />
+                    <EndValue />
+                    <LegendName>Legend1</LegendName>
+                    <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
+                  </MapColorRangeRule>
+                </MapPointRules>
+                <MapDataRegionName>Map3_PointLayer2_DataRegion</MapDataRegionName>
+                <MapSpatialDataRegion>
+                  <VectorData>=Fields!Lokalizacja.Value</VectorData>
+                </MapSpatialDataRegion>
                 <Transparency>40</Transparency>
               </MapPointLayer>
             </MapLayers>
