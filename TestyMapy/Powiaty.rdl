@@ -162,23 +162,20 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                     <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
                   </Style>
-                  <Label>=Fields!Nazwa.Value</Label>
                 </MapPolygonTemplate>
                 <MapPolygonRules>
-                  <MapColorRangeRule>
-                    <ShowInColorScale>true</ShowInColorScale>
-                    <DataValue>=Fields!KodTeryt.Value</DataValue>
+                  <MapColorPaletteRule>
+                    <ShowInColorScale>false</ShowInColorScale>
                     <StartValue />
                     <EndValue />
-                    <LegendName>Legend1</LegendName>
                     <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
-                  </MapColorRangeRule>
+                  </MapColorPaletteRule>
                 </MapPolygonRules>
                 <MapMarkerTemplate>
                   <MapMarker>
                     <MapMarkerStyle>Circle</MapMarkerStyle>
                   </MapMarker>
-                  <Size>10pt</Size>
+                  <Size>6pt</Size>
                   <Style>
                     <Border>
                       <Color>Gray</Color>
@@ -189,13 +186,24 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                     <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
                   </Style>
-                  <Hidden>true</Hidden>
+                  <ToolTip>=Fields!Nazwa.Value</ToolTip>
                 </MapMarkerTemplate>
-                <MapCenterPointRules />
+                <MapCenterPointRules>
+                  <MapSizeRule>
+                    <StartSize>5pt</StartSize>
+                    <EndSize>30pt</EndSize>
+                    <DataValue>=Fields!Nazwa.Value</DataValue>
+                    <StartValue />
+                    <EndValue />
+                    <LegendName>Legend1</LegendName>
+                    <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
+                  </MapSizeRule>
+                </MapCenterPointRules>
                 <MapDataRegionName>Map1_PolygonLayer1_DataRegion</MapDataRegionName>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
+                <VisibilityMode>ZoomBased</VisibilityMode>
                 <Transparency>40</Transparency>
               </MapPolygonLayer>
               <MapPointLayer Name="PointLayer1">
@@ -220,6 +228,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
+                <VisibilityMode>Hidden</VisibilityMode>
                 <Transparency>40</Transparency>
               </MapPointLayer>
               <MapPolygonLayer Name="PolygonLayer2">
@@ -257,8 +266,37 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
+                <VisibilityMode>Hidden</VisibilityMode>
                 <Transparency>40</Transparency>
               </MapPolygonLayer>
+              <MapPointLayer Name="PointLayer2">
+                <MapMarkerTemplate>
+                  <MapMarker>
+                    <MapMarkerStyle>Rectangle</MapMarkerStyle>
+                  </MapMarker>
+                  <Size>4pt</Size>
+                  <Style>
+                    <Border>
+                      <Color>Gray</Color>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <BackgroundGradientType>None</BackgroundGradientType>
+                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                  <Label>#Name</Label>
+                  <ToolTip>#Name</ToolTip>
+                </MapMarkerTemplate>
+                <MapPointRules />
+                <MapFieldDefinitions>
+                  <MapFieldDefinition>
+                    <Name>Name</Name>
+                    <DataType>String</DataType>
+                  </MapFieldDefinition>
+                </MapFieldDefinitions>
+                <VisibilityMode>Hidden</VisibilityMode>
+              </MapPointLayer>
             </MapLayers>
             <MapTitles>
               <MapTitle Name="Title1">
