@@ -71,7 +71,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Map Name="Map1">
+          <Map Name="Gminy">
             <MapViewport>
               <MapCoordinateSystem>Geographic</MapCoordinateSystem>
               <MapProjection>Mercator</MapProjection>
@@ -132,13 +132,13 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
               <BottomMargin>2pt</BottomMargin>
             </MapViewport>
             <MapDataRegions>
-              <MapDataRegion Name="Map1_PolygonLayer1_DataRegion">
+              <MapDataRegion Name="Gminy_PolygonLayer1_DataRegion">
                 <DataSetName>Powiaty</DataSetName>
                 <MapMember>
                   <Group Name="Map1_PolygonLayer1_Group" />
                 </MapMember>
               </MapDataRegion>
-              <MapDataRegion Name="Map1_PointLayer1_DataRegion">
+              <MapDataRegion Name="Gminy_PointLayer1_DataRegion">
                 <DataSetName>Gminy</DataSetName>
                 <MapMember>
                   <Group Name="Map1_PointLayer1_Group" />
@@ -162,6 +162,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                     <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
                   </Style>
+                  <Label>=Fields!Nazwa.Value</Label>
                 </MapPolygonTemplate>
                 <MapPolygonRules>
                   <MapColorPaletteRule>
@@ -186,24 +187,13 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                     <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
                   </Style>
-                  <ToolTip>=Fields!Nazwa.Value</ToolTip>
+                  <Hidden>true</Hidden>
                 </MapMarkerTemplate>
-                <MapCenterPointRules>
-                  <MapSizeRule>
-                    <StartSize>5pt</StartSize>
-                    <EndSize>30pt</EndSize>
-                    <DataValue>=Fields!Nazwa.Value</DataValue>
-                    <StartValue />
-                    <EndValue />
-                    <LegendName>Legend1</LegendName>
-                    <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
-                  </MapSizeRule>
-                </MapCenterPointRules>
-                <MapDataRegionName>Map1_PolygonLayer1_DataRegion</MapDataRegionName>
+                <MapCenterPointRules />
+                <MapDataRegionName>Gminy_PolygonLayer1_DataRegion</MapDataRegionName>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
-                <VisibilityMode>ZoomBased</VisibilityMode>
                 <Transparency>40</Transparency>
               </MapPolygonLayer>
               <MapPointLayer Name="PointLayer1">
@@ -217,85 +207,40 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                       <Color>Gray</Color>
                       <Style>Solid</Style>
                     </Border>
-                    <BackgroundGradientType>None</BackgroundGradientType>
-                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                  <Label>=Fields!Nazwa.Value</Label>
-                </MapMarkerTemplate>
-                <MapPointRules />
-                <MapDataRegionName>Map1_PointLayer1_DataRegion</MapDataRegionName>
-                <MapSpatialDataRegion>
-                  <VectorData>=Fields!Lokalizacja.Value</VectorData>
-                </MapSpatialDataRegion>
-                <VisibilityMode>Hidden</VisibilityMode>
-                <Transparency>40</Transparency>
-              </MapPointLayer>
-              <MapPolygonLayer Name="PolygonLayer2">
-                <MapPolygonTemplate>
-                  <Style>
-                    <Border>
-                      <Color>Gray</Color>
-                      <Style>Solid</Style>
-                    </Border>
-                    <BackgroundGradientType>None</BackgroundGradientType>
-                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </MapPolygonTemplate>
-                <MapPolygonRules />
-                <MapMarkerTemplate>
-                  <MapMarker>
-                    <MapMarkerStyle>Circle</MapMarkerStyle>
-                  </MapMarker>
-                  <Size>10pt</Size>
-                  <Style>
-                    <Border>
-                      <Color>Gray</Color>
-                      <Style>Solid</Style>
-                    </Border>
                     <BackgroundColor>White</BackgroundColor>
                     <BackgroundGradientType>None</BackgroundGradientType>
                     <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
                   </Style>
-                  <Hidden>true</Hidden>
+                  <ActionInfo>
+                    <Actions>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>AkcjePerGminy</ReportName>
+                          <Parameters>
+                            <Parameter Name="KodTeryt">
+                              <Value>=Fields!KodTeryt.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                    </Actions>
+                  </ActionInfo>
+                  <ToolTip>=Fields!Nazwa.Value</ToolTip>
                 </MapMarkerTemplate>
-                <MapCenterPointRules />
-                <MapDataRegionName>Map1_PointLayer1_DataRegion</MapDataRegionName>
+                <MapPointRules>
+                  <MapColorPaletteRule>
+                    <ShowInColorScale>false</ShowInColorScale>
+                    <StartValue />
+                    <EndValue />
+                    <LegendText>#FROMVALUE{N0} - #TOVALUE{N0}</LegendText>
+                  </MapColorPaletteRule>
+                </MapPointRules>
+                <MapDataRegionName>Gminy_PointLayer1_DataRegion</MapDataRegionName>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
-                <VisibilityMode>Hidden</VisibilityMode>
                 <Transparency>40</Transparency>
-              </MapPolygonLayer>
-              <MapPointLayer Name="PointLayer2">
-                <MapMarkerTemplate>
-                  <MapMarker>
-                    <MapMarkerStyle>Rectangle</MapMarkerStyle>
-                  </MapMarker>
-                  <Size>4pt</Size>
-                  <Style>
-                    <Border>
-                      <Color>Gray</Color>
-                      <Style>Solid</Style>
-                    </Border>
-                    <BackgroundColor>White</BackgroundColor>
-                    <BackgroundGradientType>None</BackgroundGradientType>
-                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                  <Label>#Name</Label>
-                  <ToolTip>#Name</ToolTip>
-                </MapMarkerTemplate>
-                <MapPointRules />
-                <MapFieldDefinitions>
-                  <MapFieldDefinition>
-                    <Name>Name</Name>
-                    <DataType>String</DataType>
-                  </MapFieldDefinition>
-                </MapFieldDefinitions>
-                <VisibilityMode>Hidden</VisibilityMode>
               </MapPointLayer>
             </MapLayers>
             <MapTitles>
@@ -390,6 +335,20 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                 <Color>White</Color>
               </Style>
             </MapBorderSkin>
+            <ActionInfo>
+              <Actions>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>AkcjePerGminy</ReportName>
+                    <Parameters>
+                      <Parameter Name="KodTeryt">
+                        <Value>=First(Fields!KodTeryt.Value, "Gminy")</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+              </Actions>
+            </ActionInfo>
             <Height>12.1082cm</Height>
             <Width>23.18303cm</Width>
             <Style>

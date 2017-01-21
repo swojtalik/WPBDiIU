@@ -22,6 +22,18 @@
       <Name>Wojewodztwa.rdl</Name>
       <FullPath>Wojewodztwa.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>AkcjePerGminy.rdl</Name>
+      <FullPath>AkcjePerGminy.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AkcjePerMiasta.rdl</Name>
+      <FullPath>AkcjePerMiasta.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AkcjePerUlice.rdl</Name>
+      <FullPath>AkcjePerUlice.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
