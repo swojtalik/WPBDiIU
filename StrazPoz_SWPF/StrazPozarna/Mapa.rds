@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Mapa">
-  <ConnectionProperties>
-    <Extension>SQL</Extension>
-    <ConnectString>Data Source=sqltester.wwsi.edu.pl</ConnectString>
-  </ConnectionProperties>
-  <DataSourceID>f28cd685-0a54-4e49-a8d2-5c8c4d5420bf</DataSourceID>
-</RptDataSource>
