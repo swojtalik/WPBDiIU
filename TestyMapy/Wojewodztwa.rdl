@@ -48,7 +48,9 @@
               </MapLimits>
               <MaximumZoom>4000000</MaximumZoom>
               <MapCustomView>
-                <Zoom>170</Zoom>
+                <CenterX>50.0659790039063</CenterX>
+                <CenterY>50.0447235107422</CenterY>
+                <Zoom>97.7606048583984</Zoom>
               </MapCustomView>
               <MapMeridians>
                 <Style>
@@ -232,42 +234,9 @@
                 <Transparency>40</Transparency>
               </MapPolygonLayer>
             </MapLayers>
-            <MapLegends>
-              <MapLegend Name="Legend1">
-                <MapLegendTitle>
-                  <Style>
-                    <BackgroundColor>#00ffffff</BackgroundColor>
-                    <FontSize>8pt</FontSize>
-                    <Color>White</Color>
-                  </Style>
-                  <Caption>Title</Caption>
-                </MapLegendTitle>
-                <AutoFitTextDisabled>false</AutoFitTextDisabled>
-                <InterlacedRows>false</InterlacedRows>
-                <EquallySpacedItems>false</EquallySpacedItems>
-                <Position>TopLeft</Position>
-                <DockOutsideViewport>true</DockOutsideViewport>
-                <Style>
-                  <Border>
-                    <Color>#00ffffff</Color>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#40000000</BackgroundColor>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
-                  <FontSize>8pt</FontSize>
-                  <Color>White</Color>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <LeftMargin>2pt</LeftMargin>
-                <RightMargin>2pt</RightMargin>
-                <TopMargin>2pt</TopMargin>
-                <BottomMargin>2pt</BottomMargin>
-              </MapLegend>
-            </MapLegends>
             <MapTitles>
-              <MapTitle Name="Title1">
-                <Text>Map Title</Text>
+              <MapTitle Name="Title2">
+                <Text>Mapa Polski</Text>
                 <Angle>NaN</Angle>
                 <TextShadowOffset>0pt</TextShadowOffset>
                 <DockOutsideViewport>true</DockOutsideViewport>
@@ -279,9 +248,10 @@
                   <BackgroundColor>#00ffffff</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
+                  <FontSize>24pt</FontSize>
                   <FontWeight>Normal</FontWeight>
-                  <TextAlign>Left</TextAlign>
-                  <Color>#a6a6a6</Color>
+                  <TextAlign>Center</TextAlign>
+                  <Color>Maroon</Color>
                   <ShadowOffset>0pt</ShadowOffset>
                 </Style>
                 <LeftMargin>2pt</LeftMargin>
@@ -370,10 +340,10 @@
             </Style>
           </Map>
         </ReportItems>
-        <Height>20.00in</Height>
+        <Height>8.01201in</Height>
         <Style />
       </Body>
-      <Width>18.85014908339in</Width>
+      <Width>10.99182in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

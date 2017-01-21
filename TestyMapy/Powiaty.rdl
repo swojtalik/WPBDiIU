@@ -85,9 +85,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
               </MapLimits>
               <MaximumZoom>4000000</MaximumZoom>
               <MapCustomView>
-                <CenterX>49.8953132629395</CenterX>
-                <CenterY>50.0059204101563</CenterY>
-                <Zoom>170</Zoom>
+                <Zoom>124.791351318359</Zoom>
               </MapCustomView>
               <MapMeridians>
                 <Style>
@@ -148,6 +146,10 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
               </MapDataRegion>
             </MapDataRegions>
             <MapLayers>
+              <MapTileLayer Name="TileLayer1">
+                <TileStyle>Aerial</TileStyle>
+                <UseSecureConnection>false</UseSecureConnection>
+              </MapTileLayer>
               <MapPolygonLayer Name="PolygonLayer1">
                 <MapPolygonTemplate>
                   <Style>
@@ -194,6 +196,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
+                <Transparency>40</Transparency>
               </MapPolygonLayer>
               <MapPointLayer Name="PointLayer1">
                 <MapMarkerTemplate>
@@ -217,41 +220,46 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
                 <MapSpatialDataRegion>
                   <VectorData>=Fields!Lokalizacja.Value</VectorData>
                 </MapSpatialDataRegion>
+                <Transparency>40</Transparency>
               </MapPointLayer>
-            </MapLayers>
-            <MapLegends>
-              <MapLegend Name="Legend1">
-                <MapLegendTitle>
+              <MapPolygonLayer Name="PolygonLayer2">
+                <MapPolygonTemplate>
                   <Style>
-                    <BackgroundColor>#00ffffff</BackgroundColor>
+                    <Border>
+                      <Color>Gray</Color>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundGradientType>None</BackgroundGradientType>
+                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
                     <FontSize>8pt</FontSize>
-                    <Color>White</Color>
                   </Style>
-                  <Caption>Title</Caption>
-                </MapLegendTitle>
-                <AutoFitTextDisabled>false</AutoFitTextDisabled>
-                <InterlacedRows>false</InterlacedRows>
-                <EquallySpacedItems>false</EquallySpacedItems>
-                <Position>RightTop</Position>
-                <DockOutsideViewport>false</DockOutsideViewport>
-                <Style>
-                  <Border>
-                    <Color>#00ffffff</Color>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#40000000</BackgroundColor>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
-                  <FontSize>8pt</FontSize>
-                  <Color>White</Color>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <LeftMargin>2pt</LeftMargin>
-                <RightMargin>2pt</RightMargin>
-                <TopMargin>2pt</TopMargin>
-                <BottomMargin>2pt</BottomMargin>
-              </MapLegend>
-            </MapLegends>
+                </MapPolygonTemplate>
+                <MapPolygonRules />
+                <MapMarkerTemplate>
+                  <MapMarker>
+                    <MapMarkerStyle>Circle</MapMarkerStyle>
+                  </MapMarker>
+                  <Size>10pt</Size>
+                  <Style>
+                    <Border>
+                      <Color>Gray</Color>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <BackgroundGradientType>None</BackgroundGradientType>
+                    <BackgroundGradientEndColor>LightGrey</BackgroundGradientEndColor>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                  <Hidden>true</Hidden>
+                </MapMarkerTemplate>
+                <MapCenterPointRules />
+                <MapDataRegionName>Map1_PointLayer1_DataRegion</MapDataRegionName>
+                <MapSpatialDataRegion>
+                  <VectorData>=Fields!Lokalizacja.Value</VectorData>
+                </MapSpatialDataRegion>
+                <Transparency>40</Transparency>
+              </MapPolygonLayer>
+            </MapLayers>
             <MapTitles>
               <MapTitle Name="Title1">
                 <Text>Map Title</Text>
@@ -317,6 +325,7 @@ WHERE  (T.IdTypuLok = 4) AND (T.KodTeryt LIKE @IdWoj + '%')</CommandText>
               <NoDataText>No data</NoDataText>
               <Position>LeftBottom</Position>
               <DockOutsideViewport>false</DockOutsideViewport>
+              <Hidden>true</Hidden>
               <Style>
                 <Border>
                   <Color>#00ffffff</Color>
