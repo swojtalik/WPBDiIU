@@ -59,12 +59,15 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                   <TextRun>
                     <Value>="Liczba akcji w roku w danej gminie"</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>20pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Color>Maroon</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -95,10 +98,15 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                             <TextRuns>
                               <TextRun>
                                 <Value>Gmina</Value>
-                                <Style />
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>Maroon</Color>
+                                </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -107,6 +115,7 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>Turquoise</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -138,10 +147,14 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Sum(Fields!Liczba_akcji.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Liczba_akcji</rd:DefaultName>
@@ -186,10 +199,15 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                             <TextRuns>
                               <TextRun>
                                 <Value>=Fields!Rok.Value</Value>
-                                <Style />
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>Maroon</Color>
+                                </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Rok</rd:DefaultName>
@@ -198,6 +216,7 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>Turquoise</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -233,10 +252,14 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                             <TextRuns>
                               <TextRun>
                                 <Value>=Fields!Gmina.Value</Value>
-                                <Style />
+                                <Style>
+                                  <FontStyle>Italic</FontStyle>
+                                </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Gmina</rd:DefaultName>
@@ -265,7 +288,6 @@ ORDER BY Rok, [Liczba akcji] DESC</CommandText>
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                 </TablixMember>
